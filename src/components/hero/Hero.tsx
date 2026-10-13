@@ -252,78 +252,59 @@ export function Hero() {
       </div>
 
       {/* 4. Hero Controls at RIGHT CENTER (Absolute inside Hero, not sticky across sections) */}
-      <div
-        style={{ isolation: "isolate" }}
-        className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-30 flex flex-col items-center gap-3 pointer-events-auto"
-      >
+      <div className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-30 flex flex-col items-center gap-3 pointer-events-auto">
         {/* Play / Pause Toggle Button */}
-        <div className="relative group/play flex items-center justify-center">
-          <span
-            style={{ backgroundColor: "#0d0d0d", color: "#ffffff" }}
-            className="absolute right-full mr-3 top-1/2 -translate-y-1/2 opacity-0 group-hover/play:opacity-100 transition-opacity duration-200 text-[11px] font-mono font-medium px-2.5 py-1 rounded-md shadow-lg pointer-events-none whitespace-nowrap z-40"
-          >
-            {isPlaying ? "Pause Video" : "Play Video"}
-          </span>
-          <button
-            onClick={togglePlayPause}
-            aria-label={isPlaying ? "Pause video" : "Play video"}
-            style={{
-              backgroundColor: "#0d0d0d",
-              color: "#ffffff",
-              boxShadow: "0 10px 25px rgba(0, 0, 0, 0.4)",
-            }}
-            className="w-12 h-12 rounded-full flex items-center justify-center border-2 border-white/30 transition-all hover:scale-110 active:scale-95 cursor-pointer focus:outline-none shrink-0"
-          >
-            {isPlaying ? (
-              // Pause Icon (Solid White)
-              <svg className="w-5 h-5 fill-white text-white" viewBox="0 0 24 24">
-                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
-              </svg>
-            ) : (
-              // Play Icon (Solid White)
-              <svg className="w-5 h-5 ml-0.5 fill-white text-white" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            )}
-          </button>
-        </div>
+        <button
+          onClick={togglePlayPause}
+          aria-label={isPlaying ? "Pause video" : "Play video"}
+          style={{
+            backgroundColor: "#0d0d0d",
+            color: "#ffffff",
+            boxShadow: "0 10px 25px rgba(0, 0, 0, 0.4)",
+          }}
+          className="w-12 h-12 rounded-full flex items-center justify-center border-2 border-white/30 transition-all hover:scale-110 active:scale-95 cursor-pointer focus:outline-none shrink-0"
+        >
+          {isPlaying ? (
+            // Pause Icon (Solid White)
+            <svg className="w-5 h-5 fill-white text-white" viewBox="0 0 24 24">
+              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+            </svg>
+          ) : (
+            // Play Icon (Solid White)
+            <svg className="w-5 h-5 ml-0.5 fill-white text-white" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          )}
+        </button>
 
         {/* Mute / Unmute (Sound) Toggle Button */}
-        <div className="relative group/audio flex items-center justify-center">
-          <span
-            style={{ backgroundColor: "#0d0d0d", color: "#ffffff" }}
-            className="absolute right-full mr-3 top-1/2 -translate-y-1/2 opacity-0 group-hover/audio:opacity-100 transition-opacity duration-200 text-[11px] font-mono font-medium px-2.5 py-1 rounded-md shadow-lg pointer-events-none whitespace-nowrap z-40"
-          >
-            {isMuted ? "Unmute Voice" : "Mute Voice"}
-          </span>
-          <button
-            onClick={toggleSound}
-            aria-label={isMuted ? "Unmute voice audio" : "Mute voice audio"}
-            style={{
-              backgroundColor: "#0d0d0d",
-              color: "#ffffff",
-              boxShadow: "0 10px 25px rgba(0, 0, 0, 0.4)",
-            }}
-            className="relative w-12 h-12 rounded-full flex items-center justify-center border-2 border-white/30 transition-all hover:scale-110 active:scale-95 cursor-pointer focus:outline-none shrink-0"
-          >
-            {isMuted && (
-              <span className="absolute -inset-1 rounded-full border-2 border-black/40 animate-ping pointer-events-none" />
-            )}
-            {isMuted ? (
-              // Speaker Muted Icon (Solid White)
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.2">
-                <path d="M11 5L6 9H2v6h4l5 4V5z" fill="#ffffff" stroke="#ffffff" />
-                <path d="M23 9l-6 6M17 9l6 6" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            ) : (
-              // Speaker Playing Waves Icon (Solid White)
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.2">
-                <path d="M11 5L6 9H2v6h4l5 4V5z" fill="#ffffff" stroke="#ffffff" />
-                <path d="M15.54 8.46a5 5 0 010 7.07M19.07 4.93a10 10 0 010 14.14" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            )}
-          </button>
-        </div>
+        <button
+          onClick={toggleSound}
+          aria-label={isMuted ? "Unmute voice audio" : "Mute voice audio"}
+          style={{
+            backgroundColor: "#0d0d0d",
+            color: "#ffffff",
+            boxShadow: "0 10px 25px rgba(0, 0, 0, 0.4)",
+          }}
+          className="relative w-12 h-12 rounded-full flex items-center justify-center border-2 border-white/30 transition-all hover:scale-110 active:scale-95 cursor-pointer focus:outline-none shrink-0"
+        >
+          {isMuted && (
+            <span className="absolute -inset-1 rounded-full border-2 border-black/40 animate-ping pointer-events-none" />
+          )}
+          {isMuted ? (
+            // Speaker Muted Icon (Solid White)
+            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.2">
+              <path d="M11 5L6 9H2v6h4l5 4V5z" fill="#ffffff" stroke="#ffffff" />
+              <path d="M23 9l-6 6M17 9l6 6" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          ) : (
+            // Speaker Playing Waves Icon (Solid White)
+            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.2">
+              <path d="M11 5L6 9H2v6h4l5 4V5z" fill="#ffffff" stroke="#ffffff" />
+              <path d="M15.54 8.46a5 5 0 010 7.07M19.07 4.93a10 10 0 010 14.14" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          )}
+        </button>
       </div>
 
       {/* 5. Foreground Content Container */}

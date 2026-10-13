@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { SmoothScrollProvider } from "@/lib/scroll";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const viewport: Viewport = {
   themeColor: "#f4f2ee",
@@ -71,6 +72,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased bg-[#f4f2ee] text-[#0d0d0d] min-h-screen">
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
