@@ -1,17 +1,22 @@
 # dependencies
+node_modules/
+node_modules
 /node_modules
 /.pnp
 .pnp.js
 .yarn/install-state.gz
 
 # testing
+coverage/
 /coverage
 
 # next.js
+.next/
+.next
 /.next/
+out/
 /out/
-
-# production
+build/
 /build
 
 # misc
@@ -41,3 +46,5 @@ yarn-error.log*
 /*.mp4
 /*.docx
 Merugu_Srikanth_Full_Stack_Developer_Resume.pdf
+!public/**/*.mp4
+!public/**/*.webm
