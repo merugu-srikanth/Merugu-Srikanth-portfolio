@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --paper: #f4f2ee;
+    --card: #ffffff;
+    --ink: #0d0d0d;
+    --ink-2: #262626;
+    --mute: #77756f;
+    --faint: #a9a6a0;
+    --line: rgba(13, 13, 13, 0.08);
+    --soft: #e9e6e0;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --gutter: clamp(15px, 2.5vw, 32px);
+
+    --font-inter: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-serif: 'Instrument Serif', Georgia, serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-inter);
+    scroll-behavior: auto !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--paper);
+    color: var(--ink);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  ::selection {
+    background-color: var(--ink);
+    color: var(--paper);
+  }
+}
+
+/* Global Typography & Utility classes */
+.font-display {
+  font-family: var(--font-inter);
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+
+.font-serif-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--mute);
+}
+
+.font-mono-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mute);
+  font-weight: 600;
+}
+
+.section-container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.section-padding {
+  padding-top: clamp(36px, 5vh, 48px);
+  padding-bottom: clamp(36px, 5vh, 48px);
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: clamp(64px, 8vh, 96px);
+    padding-bottom: clamp(64px, 8vh, 96px);
+  }
+}
+
+.card-base {
+  background: var(--card);
+  border-radius: 24px;
+  box-shadow: inset 0 0 0 1px var(--line), 0 4px 20px -2px rgba(0, 0, 0, 0.03);
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+
+.card-base:hover {
+  box-shadow: inset 0 0 0 1px rgba(13, 13, 13, 0.14), 0 16px 36px -8px rgba(0, 0, 0, 0.06);
+}
+
+/* Standardized Buttons */
+.btn-pill-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 44px;
+  background-color: var(--ink);
+  color: #ffffff;
+  border-radius: 9999px;
+  padding: 0 1.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.25s var(--ease);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-pill-primary:hover {
+  background-color: var(--ink-2);
+  transform: translateY(-1.5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+}
+
+.btn-pill-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 44px;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: var(--ink);
+  border: 1px solid rgba(13, 13, 13, 0.12);
+  border-radius: 9999px;
+  padding: 0 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  backdrop-filter: blur(8px);
+  transition: all 0.25s var(--ease);
+}
+
+.btn-pill-secondary:hover {
+  border-color: var(--ink);
+  background-color: #ffffff;
+  transform: translateY(-1.5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--paper);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--faint);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--mute);
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
